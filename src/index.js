@@ -10,6 +10,8 @@
 
 export default {
 	async fetch(request, env, ctx) {
-		return new Response('Hello World!');
+		const response = await fetch("http://postman-echo.com/get");
+		const data = await response.json();
+		return new Response(data.url);
 	},
 };
